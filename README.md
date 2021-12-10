@@ -5,6 +5,6 @@ pong  game made with javascript and kaboom.js
 
 # Screenshot
 <div style="display:flex">
-  <img src="https://github.com/pepega90/space-shooter-game/blob/main/ss/Screenshot_7.png" />
-  <img src="https://github.com/pepega90/space-shooter-game/blob/main/ss/Screenshot_8.png" />
+  <img src="https://github.com/pepega90/PongChamp/blob/main/ss/Screenshot_7.png" />
+  <img src="https://github.com/pepega90/PongChamp/blob/main/ss/Screenshot_8.png" />
 </div>
