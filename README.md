@@ -3,7 +3,7 @@ pong  game made with javascript and kaboom.js
 
 * Uses [kaboom.js](https://kaboomjs.com/)
 
-Play [here](https://xenodochial-kalam-f9db77.netlify.app/)
+Play [here](https://xenodochial-kalam-f9db77.netlify.app/) 
 
 # Screenshot
 <div style="display:flex">
