@@ -4686,42 +4686,42 @@ var _kaboom = _interopRequireDefault(require("kaboom"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (0, _kaboom.default)({
-  width: 640,
-  height: 400,
+  width: 800,
+  height: 600,
   background: [0, 0, 0]
 }); // game variable
 
 var score1 = 0;
 var score2 = 0;
 var scored = false;
-scene('menu', function () {
-  onKeyPress('space', function () {
-    go('game');
+scene("menu", function () {
+  onKeyPress("space", function () {
+    go("game");
   });
   onDraw(function () {
     drawText({
-      text: 'PongChamp',
+      text: "PongChamp",
       pos: vec2(width() / 2, height() / 4),
-      origin: 'center'
+      origin: "center"
     });
     drawText({
       text: 'Tekan "SPACE" untuk play',
       size: 30,
       pos: center(),
-      origin: 'center'
+      origin: "center"
     });
     drawText({
-      text: 'created by aji mustofa @pepega90',
+      text: "created by aji mustofa @pepega90",
       size: 25,
       pos: vec2(width() / 2, height() - 20),
-      origin: 'center' //   color: YELLOW,
+      origin: "center" //   color: YELLOW,
 
     });
   });
 });
-scene('game', function () {
+scene("game", function () {
   // create player
-  var player = add([rect(20, 100), pos(width() - 30, height() / 2 - 40), area(), {
+  var player = add([rect(20, 100), pos(width() - 60, height() / 2 - 40), area(), {
     speed: 300
   }]); // create musuh
 
@@ -4729,14 +4729,14 @@ scene('game', function () {
     speed: 5
   }]); // create bola
 
-  var bola = add([circle(10), pos(center()), origin('center'), 'bola', {
+  var bola = add([circle(10), pos(center()), origin("center"), "bola", {
     speed: vec2(5, 5)
   }]); // control player
 
-  onKeyDown('up', function () {
+  onKeyDown("up", function () {
     if (player.pos.y > 0) player.move(0, -player.speed);
   });
-  onKeyDown('down', function () {
+  onKeyDown("down", function () {
     if (player.pos.y < height() - player.height) player.move(0, player.speed);
   }); // AI musuh
 
@@ -4753,7 +4753,7 @@ scene('game', function () {
   });
   bola.onUpdate(function () {
     // check bola dengan batas atas dan bawah layar
-    if (bola.pos.y > height() || bola.pos.y < 0) {
+    if (bola.pos.y > height() - 10 || bola.pos.y < 10) {
       bola.speed.y *= -1;
     } // check jika bola goal ke player
 
@@ -4793,7 +4793,7 @@ scene('game', function () {
     if (bola.speed.y > 0) bola.speed.y += 1;
     if (bola.speed.y < 0) bola.speed.y -= 1;
     wait(5, function () {
-      if (bola.speed.x == -10 || bola.speed.x == 10 && bola.speed.y == 10 || bola.speed.y == -10) return;
+      if (bola.speed.x == -8 || bola.speed.x == 8 && bola.speed.y == 8 || bola.speed.y == -8) return;
       speedUp();
     });
   }
@@ -4802,14 +4802,14 @@ scene('game', function () {
 
   onDraw(function () {
     drawText({
-      text: '' + score1,
+      text: "" + score1,
       pos: vec2(width() / 2 - 50, 35),
-      origin: 'center'
+      origin: "center"
     });
     drawText({
-      text: '' + score2,
+      text: "" + score2,
       pos: vec2(width() / 2 + 50, 35),
-      origin: 'center'
+      origin: "center"
     });
 
     for (var i = 0; i < height(); i++) {
@@ -4817,12 +4817,12 @@ scene('game', function () {
         width: 5,
         height: 5,
         pos: vec2(width() / 2, i * 15),
-        origin: 'center'
+        origin: "center"
       });
     }
   });
 });
-go('menu'); // function untuk melakukan check collision antara bola dengan player/musuh
+go("menu"); // function untuk melakukan check collision antara bola dengan player/musuh
 
 function checkBolaCollision(bola, papan) {
   var posX = bola.pos.x;
@@ -4838,7 +4838,7 @@ function checkBolaCollision(bola, papan) {
   if (distance <= 10) return true;
   return false;
 }
-},{"kaboom":"node_modules/kaboom/dist/kaboom.mjs"}],"node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"kaboom":"node_modules/kaboom/dist/kaboom.mjs"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -4866,7 +4866,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49494" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49676" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -4897,8 +4897,9 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
         assetsToAccept.forEach(function (v) {
           hmrAcceptRun(v[0], v[1]);
         });
-      } else {
-        window.location.reload();
+      } else if (location.reload) {
+        // `location` global exists in a web worker context but lacks `.reload()` function.
+        location.reload();
       }
     }
 
@@ -5041,5 +5042,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel/src/builtins/hmr-runtime.js","pong.js"], null)
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","pong.js"], null)
 //# sourceMappingURL=/pong.564cbbb0.js.map
